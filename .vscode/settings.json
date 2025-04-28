@@ -1,0 +1,12 @@
+{
+  "files.exclude": {
+    ".gitignore": true,
+    ".python-version": true,
+    "README.md": true,
+    "requirements-dev.lock": true,
+    "requirements.lock": true,
+    "**/.venv": true,
+    "**/.git": true,
+    "**/__pycache__": true
+  }
+}

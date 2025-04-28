@@ -1,0 +1,41 @@
+[project]
+name = "school-code"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Fromsko", email = "1614355756@qq.com" }
+]
+dependencies = [
+    "black>=25.1.0",
+    "pydantic>=2.11.3",
+    "bs4>=0.0.2",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[project.scripts]
+"school-code" = "school_code.exp_1.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/school_code", "src/school_code/exp_1"]
+
+[tool.rye.scripts]
+web = "uvicorn src.school_code.main:app --reload"
+build-exe = "pyinstaller --onefile src/school_code/__main__.py"
+format = "black ."
+exp = "python src/school_code/exp_1.py"
+
+[[tool.rye.sources]]
+name = "default"
+url = "https://mirrors.aliyun.com/pypi/simple/"
