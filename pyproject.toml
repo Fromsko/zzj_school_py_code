@@ -13,9 +13,6 @@ dependencies = [
 readme = "README.md"
 requires-python = ">= 3.8"
 
-[project.scripts]
-"school-code" = "school_code.exp_1.__main__:main"
-
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
@@ -28,13 +25,12 @@ dev-dependencies = []
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/school_code", "src/school_code/exp_1"]
+packages = ["src"]
 
 [tool.rye.scripts]
-web = "uvicorn src.school_code.main:app --reload"
-build-exe = "pyinstaller --onefile src/school_code/__main__.py"
 format = "black ."
-exp = "python src/school_code/exp_1.py"
+1 = "python src/exp_1.py"
+2 = "python src/exp_2.py"
 
 [[tool.rye.sources]]
 name = "default"
